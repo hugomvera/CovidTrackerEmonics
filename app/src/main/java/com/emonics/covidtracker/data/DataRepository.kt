@@ -6,7 +6,7 @@ class DataRepository (private val dataDao: DataDao) {
 
     val readAllData: LiveData<List<Data>> = dataDao.readAllData()
 
-    suspend fun addUser(data: Data){
+    suspend fun addData(data: Data){
         dataDao.addData(data)
     }
 
