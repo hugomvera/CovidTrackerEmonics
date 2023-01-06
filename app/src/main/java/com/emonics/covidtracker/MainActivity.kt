@@ -5,15 +5,11 @@ package com.emonics.covidtracker
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.TextView
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
-import com.emonics.covidtracker.data.Data
-import com.emonics.covidtracker.data.DataDatabase
 import com.emonics.covidtracker.data.DataViewModel
+import com.emonics.covidtracker.retrofit.DataApi
+import com.emonics.covidtracker.retrofit.RetrofitHelper
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
