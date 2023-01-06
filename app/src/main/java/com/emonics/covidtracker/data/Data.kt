@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "data_table")
 data class Data(
     @PrimaryKey(autoGenerate = true) val id: Int?,
-    @ColumnInfo(name ="data") val date: Int?,
-    @ColumnInfo(name ="dateChecked") val dateChecked: String?,
-    @ColumnInfo(name ="death")val death: Int?
+    @ColumnInfo(name ="date") val String: String?,
+    @ColumnInfo(name ="dateChecked") val dateChecked: String,
+    @ColumnInfo(name ="death") val death: Int?
     //val deathIncrease: Int?,
    // val hash: String?,
    // val hospitalized: Int?,
