@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
                     mDataViewModel.addData(data)
 
 
-                    val dataOut = mDataViewModel.readAllData.value
+                   // val dataOut = mDataViewModel.readAllData.value
 
-                    println()
+                    //println()
                     // Log.d("output", counter.toString())
 
 
@@ -84,33 +84,33 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        mDataViewModel.readAllData.observe(this@MainActivity) { datas ->
-
-            // txt1.text=words[1].word
-            println(datas.toString())
-            Log.d("readOut", datas.size.toString())
-            Log.d("readOut",datas.toString())
-
-
-            var strOut = ""
-
-            for(data in datas){
-                Log.d("readOutTable",data.id.toString())
-                Log.d("readOutTable",data.dateChecked.toString())
-                Log.d("readOutTable",data.death.toString())
-
-                strOut =  strOut+ data.id.toString() + " " + data.dateChecked.toString()+ data.death.toString() + "\n"
-
-            }
-
-            val textView: TextView = findViewById(R.id.textView) as TextView
-
-            textView.setText(strOut)
-
-
-
-
-
-        }
+//        mDataViewModel.readAllData.observe(this@MainActivity) { datas ->
+//
+//            // txt1.text=words[1].word
+//            println(datas.toString())
+//            Log.d("readOut", datas.size.toString())
+//            Log.d("readOut",datas.toString())
+//
+//
+//            var strOut = ""
+//
+//            for(data in datas){
+//                Log.d("readOutTable",data.id.toString())
+//                Log.d("readOutTable",data.dateChecked.toString())
+//                Log.d("readOutTable",data.death.toString())
+//
+//                strOut =  strOut+ data.id.toString() + " " + data.dateChecked.toString()+ data.death.toString() + "\n"
+//
+//            }
+//
+//            val textView: TextView = findViewById(R.id.textView) as TextView
+//
+//            textView.setText(strOut)
+//
+//
+//
+//
+//
+//        }
     }
 }
