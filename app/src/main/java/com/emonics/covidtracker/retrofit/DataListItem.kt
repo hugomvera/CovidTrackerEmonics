@@ -1,4 +1,4 @@
-package com.emonics.covidtracker
+package com.emonics.covidtracker.retrofit
 
 
 data class DataListItem(
