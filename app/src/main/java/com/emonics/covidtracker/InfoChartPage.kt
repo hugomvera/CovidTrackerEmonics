@@ -27,35 +27,32 @@ class InfoChartPage : AppCompatActivity() {
 
 //      Log.d("Emonics", statesList.toString())
 
-        val dateList = listOf("2020-03-15", "2020-03-16", "2020-03-17")
-
         // Declare and initialize adaptors
         val adapterState = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, statesList)
         val adapterChart = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, chartList)
         val adapterDataType = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dataTypeList)
-        //val adapterDate = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dateList)
 
         /*
+         Use this code block as a potential reference later.
+         On the chance we need to check for nulls.
+         Ideally would like to populate with a default value.
+        ------------------------------------------------------
         val spState = findViewById<Spinner>(R.id.spState)
 
             if (spState != null){
                 val adapterState = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, statesList)
                 spState.adapter = adapterState
             }
+        -------------------------------------------------------
         */
 
 
         binding.spState.adapter = adapterState
         binding.spChartType.adapter = adapterChart
         binding.spDataType.adapter = adapterDataType
-        //binding.spDate.adapter = adapterDate
         binding.btnDateSelector.setOnClickListener {
             showDateRangePicker()
         }
-
-
-
-
 
         /*TODO:
             On item selected from slider, send value into a dynamic sql query in the room database,
@@ -72,6 +69,11 @@ class InfoChartPage : AppCompatActivity() {
 
     }
 
+    // Function shows calendar and allows user to selection start and end dates.
+    // *** Potential Issue:
+    // Start Date selected is 1 day behind the day selected by the user.
+    // End Date selected is also 1 day behind.
+    // ***
     private fun showDateRangePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
             .dateRangePicker()
@@ -84,8 +86,8 @@ class InfoChartPage : AppCompatActivity() {
             datesPicked ->
             val startDate = datesPicked.first
             val endDate = datesPicked.second
-            Log.d("Emonics:", startDate.toString())
-            Log.d("Emonics:", endDate.toString())
+//            Log.d("Emonics:", startDate.toString())
+//            Log.d("Emonics:", endDate.toString())
 
            if(startDate != null && endDate != null) {
                binding.tvDateRange.text = "Year-Month-Day\n"+ "Start Date:\t" + convertLongToDate(startDate) +
@@ -94,6 +96,8 @@ class InfoChartPage : AppCompatActivity() {
         }
 
     }
+    // Converts a long into a string with a formatted value.
+    //*** Potential Issue: May need to create another function that can format the date into a queryable string.
     private fun convertLongToDate(time: Long) : String{
         val date = Date(time)
         val formattedDate = SimpleDateFormat(
