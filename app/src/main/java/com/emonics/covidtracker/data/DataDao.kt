@@ -16,6 +16,10 @@ interface DataDao {
     @Query("SELECT * FROM data_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Data>>
 
+    @Query("SELECT * FROM data_table WHERE states  = :stateFind ")
+    fun  readByState(stateFind: Int): LiveData<List<Data>>
+
+
 
 
 }
