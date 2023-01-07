@@ -68,12 +68,14 @@ class InfoChartPage : AppCompatActivity() {
         */
 
     }
-
-    // Function shows calendar and allows user to selection start and end dates.
-    // *** Potential Issue:
-    // Start Date selected is 1 day behind the day selected by the user.
-    // End Date selected is also 1 day behind.
-    // ***
+    /*
+    Function shows calendar and allows user to selection start and end dates.
+    ------------------------------------------------------------------
+    TODO: Potential Issue
+    Start Date selected is 1 day behind the day selected by the user.
+    End Date selected is also 1 day behind.
+    ------------------------------------------------------------------
+    */
     private fun showDateRangePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
             .dateRangePicker()
@@ -96,8 +98,13 @@ class InfoChartPage : AppCompatActivity() {
         }
 
     }
-    // Converts a long into a string with a formatted value.
-    //*** Potential Issue: May need to create another function that can format the date into a queryable string.
+    /*
+    Converts a long into a string with a formatted value.
+    ---------------------------------------------------------------------------------------
+    TODO: Potential Issue
+    May need to create another function that can format the date into a queryable string.
+    ---------------------------------------------------------------------------------------
+    */
     private fun convertLongToDate(time: Long) : String{
         val date = Date(time)
         val formattedDate = SimpleDateFormat(
