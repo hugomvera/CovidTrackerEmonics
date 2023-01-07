@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 class DataViewModel (application: Application): AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Data>>
+
+
     private val repository: DataRepository
 
     init {
@@ -33,6 +35,12 @@ class DataViewModel (application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateData(data)
         }
+    }
+
+      fun readByState(state:Int):LiveData<List<Data>>{
+
+             return repository.readByState(state)
+
     }
 
 }

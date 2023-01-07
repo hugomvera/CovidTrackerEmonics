@@ -51,14 +51,23 @@ class MainActivity : AppCompatActivity() {
                     val dataItem = dataList.next()
                     val resultData = " " + "Date : ${dataItem.date}" + "\n" +
                             " " + "Death : ${dataItem.death}" + "\n" +
-                            " " + "hospitilized : ${dataItem.hospitalized}" + "\n\n\n"
+                            " " + "hospitilized : ${dataItem.hospitalized}" +
+                             " " + "total : ${dataItem.total}" + "\n\n\n"
 
                     Log.d("deaths", resultData)
                     // text_view.setText(resultData)
 
                     val data = com.emonics.covidtracker.data.Data(
                         counter,
-                        dataItem.date.toString(), dataItem.dateChecked, dataItem.death
+                        dataItem.date.toString(),
+                        dataItem.dateChecked,
+                        dataItem.death,
+                        dataItem.hospitalized,
+                        dataItem.negative,
+                        dataItem.pending,
+                        dataItem.positive,
+                        dataItem.states,
+                        dataItem.total
                     );
 
                     mDataViewModel.addData(data)
@@ -84,33 +93,51 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        mDataViewModel.readAllData.observe(this@MainActivity) { datas ->
-//
-//            // txt1.text=words[1].word
-//            println(datas.toString())
-//            Log.d("readOut", datas.size.toString())
-//            Log.d("readOut",datas.toString())
-//
-//
-//            var strOut = ""
-//
-//            for(data in datas){
-//                Log.d("readOutTable",data.id.toString())
-//                Log.d("readOutTable",data.dateChecked.toString())
-//                Log.d("readOutTable",data.death.toString())
-//
-//                strOut =  strOut+ data.id.toString() + " " + data.dateChecked.toString()+ data.death.toString() + "\n"
-//
-//            }
-//
-//            val textView: TextView = findViewById(R.id.textView) as TextView
-//
-//            textView.setText(strOut)
-//
-//
-//
-//
-//
-//        }
+
+        mDataViewModel.readAllData.observe(this@MainActivity) { datas ->
+
+            // txt1.text=words[1].word
+            println(datas.toString())
+            Log.d("readOut", datas.size.toString())
+            Log.d("readOut",datas.toString())
+
+
+            var strOut = ""
+
+            for(data in datas){
+                Log.d("readOutTable",data.id.toString())
+                Log.d("readOutTable",data.dateChecked.toString())
+                Log.d("readOutTable",data.death.toString())
+
+                strOut =     strOut+
+                                    "   id : " + data.id.toString() +
+                                  "  dateChecked: " + data.dateChecked.toString()+
+                                    "  death: " + data.death.toString() + "\n"
+
+            }
+
+            val textView: TextView = findViewById(R.id.textView) as TextView
+
+            textView.setText(strOut)
+
+
+
+
+         //  Log.d("queryResult",mDataViewModel.readByState(56).observe())
+
+
+            mDataViewModel.readByState(56).observe(this@MainActivity) { datas ->
+
+                // txt1.text=words[1].word
+                println(datas.toString())
+
+                for(data in datas){
+                    Log.d("readOutQuery",data.id.toString())
+                    Log.d("readOutQuery",data.dateChecked.toString())
+                    Log.d("readOutQuery",data.death.toString())
+                    Log.d("readOutQuery","state="+data.states.toString())
+                }
+
+        }}
     }
 }
