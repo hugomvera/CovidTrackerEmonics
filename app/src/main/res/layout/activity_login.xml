@@ -4,27 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:id="@+id/Logintitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="203dp"
+        android:gravity="center"
+        android:text="Welcome to Covid Tracker"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/login_button"
         android:layout_width="135dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="145dp"
-        android:text="Login"
-     />
+        android:layout_marginStart="51dp"
+        android:layout_marginBottom="41dp"
+        android:text="Login" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signup_button"
         android:layout_width="135dp"
         android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="145dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="40dp"
         android:text="SignUp" />
 
 </RelativeLayout>
