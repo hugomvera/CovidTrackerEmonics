@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814564796125",
+    "project_id": "covidtracker-5a1e8",
+    "storage_bucket": "covidtracker-5a1e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814564796125:android:50effb2fa6c7317f7c5d34",
+        "android_client_info": {
+          "package_name": "com.emonics.covidtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814564796125-ou86g7e0b7t83buau1l33bcspvl6k4mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA72lFUSJvNKIdBmjMTKC5XXPmMwerhq7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814564796125-ou86g7e0b7t83buau1l33bcspvl6k4mc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
