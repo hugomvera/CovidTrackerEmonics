@@ -66,15 +66,27 @@ class MainActivity : AppCompatActivity() {
 
                     val data = com.emonics.covidtracker.data.Data(
                         counter,
-                        dataItem.date.toString(),
+                        dataItem.date,
                         dataItem.dateChecked,
                         dataItem.death,
+                        dataItem.deathIncrease,
                         dataItem.hospitalized,
+                        dataItem.hospitalizedCumulative,
+                        dataItem.hospitalizedCurrently,
+                        dataItem.hospitalizedIncrease,
+                        dataItem.inIcuCumulative,
+                        dataItem.inIcuCurrently,
                         dataItem.negative,
+                        dataItem.negativeIncrease,
+                        dataItem.onVentilatorCumulative,
+                        dataItem.onVentilatorCurrently,
                         dataItem.pending,
                         dataItem.positive,
+                        dataItem.positiveIncrease,
                         dataItem.states,
-                        dataItem.total
+                        dataItem.total,
+                        dataItem.totalTestResults,
+                        dataItem.totalTestResultsIncrease
                     );
 
                     mDataViewModel.addData(data)

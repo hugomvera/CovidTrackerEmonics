@@ -37,9 +37,9 @@ class DataViewModel (application: Application): AndroidViewModel(application) {
         }
     }
 
-      fun readByState(state:Int):LiveData<List<Data>>{
+      fun readByState(state:Int,date1:Int,date2:Int):LiveData<List<Data>>{
 
-             return repository.readByState(state)
+             return repository.readByState(state,date1,date2)
 
     }
 

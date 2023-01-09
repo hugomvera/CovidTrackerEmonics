@@ -12,8 +12,8 @@ class DataRepository (private val dataDao: DataDao) {
     //fun getPlantsWithGrowZoneNumber(growZoneNumber: Int) =
     //        plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
 
-       fun readByState(state:Int) :LiveData<List<Data>>  {
-        return dataDao.readByState(state)
+       fun readByState(state:Int,date1:Int,date2:Int) :LiveData<List<Data>>  {
+        return dataDao.readByState(state,date1,date2)
     }
 
 

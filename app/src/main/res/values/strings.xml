@@ -9,6 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="select_date">Select Date</string>
     <string-array name="States">
         <item>AL</item>
         <item>AK</item>
@@ -87,11 +88,26 @@
         <item>Spark Chart</item>
     </string-array>
     <string-array name="DataType">
-        <item>Positive</item>
-        <item>Negative</item>
-        <item>Total Test Results</item>
-        <item>Hospitalized</item>
         <item>Death</item>
+        <item> Death Increase </item>
+        <item>Hospitalized    </item>
+        <item>Hospitalized Cumulative</item>
+        <item>Hospitalized Currently</item>
+        <item>Hospitalized Increase </item>
+        <item> in Icu Cumulative </item>
+        <item>in Icu Currently</item>
+        <item>Negative</item>
+        <item>Negative Increase</item>
+        <item> on Ventilator Cumulative </item>
+        <item>on Ventilator Currently</item>
+        <item> pending </item>
+        <item>Positive</item>
+        <item>positiveIncrease </item>
+        <item>total </item>
+        <item>totalTestResults</item>
+        <item>Total Test Results Increase</item>
+
+
     </string-array>
 
 </resources>

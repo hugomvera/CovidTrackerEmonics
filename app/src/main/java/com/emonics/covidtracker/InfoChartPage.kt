@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.emonics.covidtracker.data.DataViewModel
 import com.emonics.covidtracker.databinding.ActivityInfoChartPageBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
@@ -14,22 +17,37 @@ import java.util.*
 
 
 class InfoChartPage : AppCompatActivity() {
+    private lateinit var mDataViewModel: DataViewModel
     private lateinit var binding: ActivityInfoChartPageBinding
+    var stateNumber = 56;
+    var date1 = 0
+    var date2 = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoChartPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //state list array strings
         val statesList = resources.getStringArray(R.array.States)
+
+        //chartList is the avaible chart types
         val chartList = resources.getStringArray(R.array.Charts)
+
+        //dataTypeList is the dataType
         val dataTypeList = resources.getStringArray(R.array.DataType)
 
-//      Log.d("Emonics", statesList.toString())
+        //this is to debug
+        //      Log.d("Emonics", statesList.toString())
 
         // Declare and initialize adaptors
+        //adapter for  states
         val adapterState = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, statesList)
+
+        //adapter for chart type
         val adapterChart = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, chartList)
+
+        //adapter for datatype
         val adapterDataType = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dataTypeList)
 
         /*
@@ -47,25 +65,80 @@ class InfoChartPage : AppCompatActivity() {
         */
 
 
+        //this for the state drop down
         binding.spState.adapter = adapterState
+
+        //this is for the chartype
         binding.spChartType.adapter = adapterChart
+
+        //this is for the data type like positive, negative, ...
         binding.spDataType.adapter = adapterDataType
         binding.btnDateSelector.setOnClickListener {
             showDateRangePicker()
         }
 
-        /*TODO:
-            On item selected from slider, send value into a dynamic sql query in the room database,
-            in order to retrieve database object containing filtered data.
 
+
+        // THis NEEDs to pass a int to the query
+        // the integer is going to be the number of state that was made
         binding.spState.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
+            //this passes live what is selected on the drop down to select the state
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val text: String = adapterView?.getItemAtPosition(position).toString()
+
+                stateNumber = position
+
+                Toast.makeText(this@InfoChartPage,"the state position is = "+stateNumber,Toast.LENGTH_LONG).show()
+
+
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-        */
+
+
+        //this for the chart type
+        binding.spChartType.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener{
+
+            //this passes live what is selected on the drop down to select the state
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val text: String = adapterView?.getItemAtPosition(position).toString()
+
+               // Toast.makeText(this@InfoChartPage,"hello on chartType is = "+text,Toast.LENGTH_LONG).show()
+
+
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        //this is for the data type like deaths, positive, ...
+        binding.spDataType.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener{
+
+            //this passes live what is selected on the drop down to select the state
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val text: String = adapterView?.getItemAtPosition(position).toString()
+
+                //Toast.makeText(this@InfoChartPage,"hello on dataType is = "+text,Toast.LENGTH_LONG).show()
+
+
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
     /*
@@ -86,16 +159,63 @@ class InfoChartPage : AppCompatActivity() {
 
         dateRangePicker.addOnPositiveButtonClickListener {
             datesPicked ->
+            var stringTestOut = ""
             val startDate = datesPicked.first
             val endDate = datesPicked.second
 //            Log.d("Emonics:", startDate.toString())
 //            Log.d("Emonics:", endDate.toString())
 
            if(startDate != null && endDate != null) {
-               binding.tvDateRange.text = "Year-Month-Day\n"+ "Start Date:\t" + convertLongToDate(startDate) +
-                       "\nEnd Date:\t" + convertLongToDate(endDate)
+
+              // binding.tvDateRange.text =stringTestOut
+                date1 = Integer.valueOf(convertLongToDate(startDate).toString().replace("-","") )
+                date2  = Integer.valueOf(convertLongToDate(endDate).toString().replace("-","") )
+
+               stringTestOut = "Year-Month-Day\n"+ "Start Date:\t" + date1 +
+                       "\nEnd Date:\t " + date2+ "\n"
            }
+
+            //TODO can place query here
+            Toast.makeText(this,"testing out",Toast.LENGTH_LONG).show()
+
+
+            mDataViewModel = ViewModelProvider(this@InfoChartPage).get(DataViewModel::class.java)
+
+            mDataViewModel.readByState(stateNumber,date1,date2).observe(this@InfoChartPage) { datas ->
+
+                // txt1.text=words[1].word
+                println(datas.toString())
+
+                Toast.makeText(this,"inside the readbystate observable",Toast.LENGTH_LONG).show()
+
+                for(data in datas){
+                    stringTestOut += "id: "+data.id.toString() +
+                                     "date: " + data.date +
+                                    "death: " + data.death.toString() +
+                                     "state: " + data.states.toString() + "\n"
+                    Log.d("readOutQueryFromInfoChartPage",data.id.toString())
+                    Log.d("readOutQueryFromInfoChartPage",data.dateChecked.toString())
+                    Log.d("readOutQueryFromInfoChartPage",data.death.toString())
+                    Log.d("readOutQueryFromInfoChartPage","state="+data.states.toString())
+                    Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
+                }
+
+                binding.tvDateRange.text = stringTestOut
+
+                //Toast.makeText(this,"the dates are" + convertLongToDate(startDate).toString().replace("-","") +" to "+ convertLongToDate(endDate) ,Toast.LENGTH_LONG).show()
+
+
+
+
+                //Toast.makeText(this,"the start date int is" + startDate + " to " +endDate,Toast.LENGTH_LONG )
+            }
+
+            //stringTestOut += "\n"+ "the output of query is "
+
+
         }
+
+
 
     }
     /*
