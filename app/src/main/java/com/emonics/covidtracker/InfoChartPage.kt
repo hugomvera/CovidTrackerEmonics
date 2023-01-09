@@ -237,3 +237,6 @@ class InfoChartPage : AppCompatActivity() {
     }
 
 }
+
+// TODO: Use the fragment container in this activity and create 3 fragments inside it. 1 for each of
+//  the charts we want to use.
