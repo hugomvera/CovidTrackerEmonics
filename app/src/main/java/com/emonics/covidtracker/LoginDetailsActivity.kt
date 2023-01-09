@@ -23,7 +23,7 @@ class LoginDetailsActivity : AppCompatActivity() {
                 //TODO Navigate to Second screen
             }else{
                 println("Sorry Try again")
-                val intent = Intent(this, LoginDetailsActivity::class.java)
+                val intent = Intent(this, InfoChartPage::class.java)
                 startActivity(intent)
             }
         }

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.emonics.covidtracker.model.UserProfile
 import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 
 
 class SignUpActivity : AppCompatActivity() {
