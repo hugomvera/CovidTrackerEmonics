@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+// Goals: Create logic for new chart activity/fragments.
+
 class InfoChartPage : AppCompatActivity() {
     private lateinit var mDataViewModel: DataViewModel
     private lateinit var binding: ActivityInfoChartPageBinding
