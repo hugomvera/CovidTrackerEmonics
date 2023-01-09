@@ -50,6 +50,11 @@
             android:exported="false">
 
         </activity>
+        <activity
+            android:name=".CSVmainactivity"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>

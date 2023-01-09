@@ -132,7 +132,8 @@ class InfoChartPage : AppCompatActivity() {
         }
 
         binding.btnCSV.setOnClickListener {
-            //val intent = Intent(this, komalpage)
+            val intent = Intent(this, CSVmainactivity::class.java)
+            startActivity(intent)
         }
     }
     /*
