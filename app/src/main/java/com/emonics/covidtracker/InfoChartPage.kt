@@ -1,5 +1,6 @@
 package com.emonics.covidtracker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -130,18 +131,9 @@ class InfoChartPage : AppCompatActivity() {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
+        binding.btnCSV.setOnClickListener {
+            //val intent = Intent(this, komalpage)
+        }
     }
     /*
     Function shows calendar and allows user to selection start and end dates.
