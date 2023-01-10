@@ -19,6 +19,7 @@ import com.emonics.covidtracker.retrofit.RetrofitHelper
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+//TODO hugo work on stuff
 
 class MainActivity : AppCompatActivity() {
     //making a data view model to create the datase
