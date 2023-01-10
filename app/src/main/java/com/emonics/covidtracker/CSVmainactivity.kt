@@ -1,3 +1,6 @@
+// New Komal Branch Feature
+// Goals:change relative layout to constraint layout Activity_CSVmainactivity.xml
+// Layout folder
 package com.emonics.covidtracker
 
 import androidx.appcompat.app.AppCompatActivity
