@@ -130,7 +130,8 @@ class InfoChartPage : AppCompatActivity() {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
                 //Toast.makeText(this@InfoChartPage,"hello on dataType is = "+text,Toast.LENGTH_LONG).show()
-
+            //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
+            // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {

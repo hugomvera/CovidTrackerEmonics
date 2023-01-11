@@ -10,4 +10,8 @@ import com.emonics.covidtracker.R
 
 class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
 
+    // TODO: Use bundle/intent in order to retrieve DataViewModel object information.
+    // Reminder: Use hardcoded dummy data when implementing charts for the first time inside the
+    // fragment classes' logic.
+
 }
