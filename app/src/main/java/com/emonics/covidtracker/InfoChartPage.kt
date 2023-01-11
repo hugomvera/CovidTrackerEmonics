@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.emonics.covidtracker.charts.ChartType1Fragment
+import com.emonics.covidtracker.charts.ChartType2Fragment
 import com.emonics.covidtracker.data.DataViewModel
 import com.emonics.covidtracker.databinding.ActivityInfoChartPageBinding
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -106,9 +108,13 @@ class InfoChartPage : AppCompatActivity() {
 
             //this passes live what is selected on the drop down to select the state
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val text: String = adapterView?.getItemAtPosition(position).toString()
+                //val text: String = adapterView?.getItemAtPosition(position).toString()
 
                // Toast.makeText(this@InfoChartPage,"hello on chartType is = "+text,Toast.LENGTH_LONG).show()
+                when(position){
+                    0 -> replaceFragment(ChartType1Fragment())
+                    1 -> replaceFragment(ChartType2Fragment())
+                }
 
 
             }
@@ -199,12 +205,8 @@ class InfoChartPage : AppCompatActivity() {
 
                 //Toast.makeText(this,"the dates are" + convertLongToDate(startDate).toString().replace("-","") +" to "+ convertLongToDate(endDate) ,Toast.LENGTH_LONG).show()
 
-
-
-
                 //Toast.makeText(this,"the start date int is" + startDate + " to " +endDate,Toast.LENGTH_LONG )
             }
-
             //stringTestOut += "\n"+ "the output of query is "
 
 
@@ -228,6 +230,14 @@ class InfoChartPage : AppCompatActivity() {
         )
         return formattedDate.format(date)
     }
+
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
+        fragmentTransaction.commit()
+    }
+
 
 }
 
