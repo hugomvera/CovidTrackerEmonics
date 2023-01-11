@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">CovidTracker</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -82,11 +83,13 @@
         <item>WI</item>
         <item>WY</item>
     </string-array>
+
     <string-array name="Charts">
         <item>Line Chart</item>
         <item>Bar Chart</item>
         <item>Spark Chart</item>
     </string-array>
+
     <string-array name="DataType">
         <item>Death</item>
         <item> Death Increase </item>
@@ -106,8 +109,6 @@
         <item>total </item>
         <item>totalTestResults</item>
         <item>Total Test Results Increase</item>
-
-
     </string-array>
 
 </resources>
