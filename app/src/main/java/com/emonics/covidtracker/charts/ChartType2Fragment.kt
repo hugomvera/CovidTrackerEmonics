@@ -1,16 +1,15 @@
 package com.emonics.covidtracker.charts
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.emonics.covidtracker.R
 import com.emonics.covidtracker.databinding.FragmentChartType2Binding
-import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+//import com.sun.tools.javac.tree.TreeInfo.args
 
 
 class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
@@ -26,7 +25,7 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
 
     fun setBarChartValues(){
         // x axis hardcoded values of chart
-        val xvalues = ArrayList<String>()
+            val xvalues = ArrayList<String>()
             xvalues.add("Jan")
             xvalues.add("Feb")
             xvalues.add("Mar")
@@ -69,6 +68,21 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
         binding.barChart.animateXY(3000, 3000)
 
 
+
+        val name = arguments?.getString("Arg1")
+
+
+        val aList1 = arguments?.getSerializable("ARRAYLIST")
+
+
+
+        val toast = Toast.makeText(context,name, Toast.LENGTH_LONG);
+
+        toast.show()
+
+        val toast2 = Toast.makeText(context, "THis is the arraylist passed "+aList1.toString(), Toast.LENGTH_LONG);
+
+        toast2.show()
 
     }
 

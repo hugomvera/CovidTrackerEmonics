@@ -22,6 +22,13 @@ import java.util.*
 // Goals: Create logic for new chart activity/fragments.
 
 class InfoChartPage : AppCompatActivity() {
+
+    //for selectind datas
+     var dataPosition =0;
+
+    //arrayList For Dates
+    var arrayListDates = ArrayList<String>()
+
     private lateinit var mDataViewModel: DataViewModel
     private lateinit var binding: ActivityInfoChartPageBinding
     var stateNumber = 56;
@@ -129,7 +136,17 @@ class InfoChartPage : AppCompatActivity() {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
-                //Toast.makeText(this@InfoChartPage,"hello on dataType is = "+text,Toast.LENGTH_LONG).show()
+
+
+              var  dataPositionSelected = position
+                Toast.makeText(this@InfoChartPage,"hello on dataType is = "+dataPositionSelected,Toast.LENGTH_LONG).show()
+
+                if(dataPositionSelected !== null){
+                    dataPosition = position as Int;
+                }
+
+
+
             //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
             // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
 
@@ -200,7 +217,20 @@ class InfoChartPage : AppCompatActivity() {
                     Log.d("readOutQueryFromInfoChartPage",data.death.toString())
                     Log.d("readOutQueryFromInfoChartPage","state="+data.states.toString())
                     Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
+
+
+                    arrayListDates.add(data.date.toString())
+
+
+
+                    Log.d("arrayListDates" , "added " + data.id.toString())
+
+
+
+
                 }
+
+                Toast.makeText(this, "date arrayList"+ arrayListDates.toString(),Toast.LENGTH_LONG)
 
                 binding.tvDateRange.text = stringTestOut
 
@@ -233,6 +263,20 @@ class InfoChartPage : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment : Fragment){
+
+
+        val bundle = Bundle().apply {
+            putString("Arg1", "name")
+            putSerializable("ArrayList1", arrayListDates)
+        }
+
+
+
+        fragment.arguments = bundle
+
+        //bundle.putParcelableArrayList("arraylist", arrayListDates);
+
+
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
@@ -243,4 +287,4 @@ class InfoChartPage : AppCompatActivity() {
 }
 
 // TODO: Use the fragment container in this activity and create 3 fragments inside it. 1 for each of
-//  the charts we want to use.
+//  the charts we want to use
