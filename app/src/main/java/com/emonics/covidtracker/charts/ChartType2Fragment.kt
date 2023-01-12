@@ -11,6 +11,7 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 
 
 class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
@@ -27,18 +28,18 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
     fun setBarChartValues(){
         // x axis hardcoded values of chart
         val xvalues = ArrayList<String>()
-            xvalues.add("Jan")
-            xvalues.add("Feb")
-            xvalues.add("Mar")
-            xvalues.add("Apr")
-            xvalues.add("May")
-            xvalues.add("Jun")
-            xvalues.add("Jul")
-            xvalues.add("Aug")
-            xvalues.add("Sep")
-            xvalues.add("Oct")
-            xvalues.add("Nov")
-            xvalues.add("Dec")
+        xvalues.add("Jan")
+        xvalues.add("Feb")
+        xvalues.add("Mar")
+        xvalues.add("Apr")
+        xvalues.add("May")
+        xvalues.add("Jun")
+        xvalues.add("Jul")
+        xvalues.add("Aug")
+        xvalues.add("Sep")
+        xvalues.add("Oct")
+        xvalues.add("Nov")
+        xvalues.add("Dec")
 
 
         // y axis hardcoded values of chart
@@ -56,12 +57,32 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
         barEntries.add(BarEntry(10.0f, 11))
         barEntries.add(BarEntry(11.0f, 12))
 
+        val barEntries2:ArrayList<BarEntry> = ArrayList()
+        barEntries2.add(BarEntry(14f, 1))
+        barEntries2.add(BarEntry(23f, 2))
+        barEntries2.add(BarEntry(21f, 3))
+        barEntries2.add(BarEntry(30.1f, 4))
+        barEntries2.add(BarEntry(42.0f, 5))
+        barEntries2.add(BarEntry(23.0f, 6))
+        barEntries2.add(BarEntry(34.0f, 7))
+        barEntries2.add(BarEntry(20.0f, 8))
+        barEntries2.add(BarEntry(50.0f, 9))
+        barEntries2.add(BarEntry(57.0f, 10))
+        barEntries2.add(BarEntry(70.0f, 11))
+        barEntries2.add(BarEntry(80.0f, 12))
+
         // Bar Data Set
         val barDataset = BarDataSet(barEntries, "Positive Cases")
         barDataset.color = resources.getColor(R.color.purple_500)
 
+        val barDataset2 = BarDataSet(barEntries2, "Negative Cases")
+        barDataset2.color = resources.getColor(R.color.teal_200)
         // Make Bar Data
-        val data = BarData(xvalues,barDataset)
+        val finalBarDataSet = ArrayList<BarDataSet>()
+        finalBarDataSet.add(barDataset)
+        finalBarDataSet.add(barDataset2)
+
+        val data = BarData(xvalues, finalBarDataSet as List<IBarDataSet>?)
 
         //binding.barChart.setFitBars(true)
         binding.barChart.data = data
