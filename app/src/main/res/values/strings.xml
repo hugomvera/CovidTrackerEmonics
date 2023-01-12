@@ -87,7 +87,7 @@
     <string-array name="Charts">
         <item>Line Chart</item>
         <item>Bar Chart</item>
-        <item>Spark Chart</item>
+     <!--   <item>Spark Chart</item> -->
     </string-array>
 
     <string-array name="DataType">

@@ -73,7 +73,7 @@ dependencies {//for an error
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
     // MP Android Charts Library
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 
 
 }
