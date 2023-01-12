@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/screen_shot_2023_01_05_at_10_47_37_pm_adobe_express">
+    android:background="@drawable/new_splash_screen">
 
 
 </RelativeLayout>
