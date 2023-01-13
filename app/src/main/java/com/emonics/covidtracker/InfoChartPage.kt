@@ -35,6 +35,9 @@ class InfoChartPage : AppCompatActivity() {
     var positionForY = 0;
     var dataForY = ArrayList<Int>()
 
+    //string Out
+    var stringTestOut = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoChartPageBinding.inflate(layoutInflater)
@@ -149,6 +152,8 @@ class InfoChartPage : AppCompatActivity() {
 
         binding.btnCSV.setOnClickListener {
             val intent = Intent(this, CSVmainactivity::class.java)
+            //TODO pass the Result String
+            intent.putExtra("arg1",stringTestOut)
             startActivity(intent)
         }
     }
@@ -170,7 +175,7 @@ class InfoChartPage : AppCompatActivity() {
 
         dateRangePicker.addOnPositiveButtonClickListener {
             datesPicked ->
-            var stringTestOut = ""
+
             val startDate = datesPicked.first
             val endDate = datesPicked.second
 //            Log.d("Emonics:", startDate.toString())
@@ -182,8 +187,7 @@ class InfoChartPage : AppCompatActivity() {
                 date1 = Integer.valueOf(convertLongToDate(startDate).toString().replace("-","") )
                 date2  = Integer.valueOf(convertLongToDate(endDate).toString().replace("-","") )
 
-               stringTestOut = "Year-Month-Day\n"+ "Start Date:\t" + date1 +
-                       "\nEnd Date:\t " + date2+ "\n"
+             //  stringTestOut = "Year-Month-Day\n"+ "Start Date:\t" + date1 + "\nEnd Date:\t " + date2+ "\n"
            }
 
             //TODO can place query here
