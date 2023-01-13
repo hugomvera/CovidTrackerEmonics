@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+
 // Goals: Create logic for new chart activity/fragments.
 
 class InfoChartPage : AppCompatActivity() {
@@ -27,6 +28,12 @@ class InfoChartPage : AppCompatActivity() {
     var stateNumber = 56;
     var date1 = 0
     var date2 = 0
+    var aLDates = ArrayList<Int>()
+    //arraylist where the deaths or whatever ill be saved
+    var aLDeaths = ArrayList<Int>();
+
+    var positionForY = 0;
+    var dataForY = ArrayList<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,7 +136,9 @@ class InfoChartPage : AppCompatActivity() {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
-                //Toast.makeText(this@InfoChartPage,"hello on dataType is = "+text,Toast.LENGTH_LONG).show()
+              positionForY = position
+                //Toast.makeText(this,"hllo",Toast.LENGTH_LONG).show()
+             Toast.makeText(this@InfoChartPage,"hello on dataType  postiion  is = "+positionForY,Toast.LENGTH_LONG).show()
             //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
             // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
 
@@ -188,7 +197,11 @@ class InfoChartPage : AppCompatActivity() {
                 // txt1.text=words[1].word
                 println(datas.toString())
 
-                Toast.makeText(this,"inside the readbystate observable",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"!!!!!!!!!!!!!inside the readbystate observable!!!!!!!!!!!!!!!",Toast.LENGTH_LONG).show()
+
+                Log.d("readOutQueryFromInfoChartPage","state=")
+
+
 
                 for(data in datas){
                     stringTestOut += "id: "+data.id.toString() +
@@ -200,10 +213,28 @@ class InfoChartPage : AppCompatActivity() {
                     Log.d("readOutQueryFromInfoChartPage",data.death.toString())
                     Log.d("readOutQueryFromInfoChartPage","state="+data.states.toString())
                     Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
+
+                   Log.d("alDate","putting in "+ data.date)
+                    aLDates.add(data.date as Int);
+                    aLDeaths.add(data.death as Int)
+
+                    //TODO add an arrayList with the dat ahere
+
+
+
+
+//                    when(positionForY){
+//                        0 ->
+//                    }
+
+
                 }
 
                 binding.tvDateRange.text = stringTestOut
 
+                Toast.makeText(this,"the data is " + stringTestOut,Toast.LENGTH_LONG).show()
+
+                Log.d("alDate","putting in "+ aLDates.toString())
                 //Toast.makeText(this,"the dates are" + convertLongToDate(startDate).toString().replace("-","") +" to "+ convertLongToDate(endDate) ,Toast.LENGTH_LONG).show()
 
                 //Toast.makeText(this,"the start date int is" + startDate + " to " +endDate,Toast.LENGTH_LONG )
@@ -233,6 +264,22 @@ class InfoChartPage : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment : Fragment){
+        //pass data to fragement
+        val bundle = Bundle().apply {
+           // putString("arg1", "this is data1")
+
+            var arraylist = ArrayList<Int>()
+            //adding String elements in the list
+            arraylist.add(1)
+
+            Log.d("bundleOut","buldne out is arg1:"+ aLDates.toString())
+            Log.d("bundleOut","buldne out is arg2:"+ aLDeaths)
+            putIntegerArrayList("arg1",aLDates)
+            putIntegerArrayList("arg2",aLDeaths)
+        }
+
+        fragment.arguments = bundle
+
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
