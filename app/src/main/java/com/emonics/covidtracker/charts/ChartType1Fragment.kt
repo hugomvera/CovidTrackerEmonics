@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.emonics.covidtracker.R
 import com.emonics.covidtracker.databinding.ActivityInfoChartPageBinding
 import com.emonics.covidtracker.databinding.FragmentChartType1Binding
@@ -27,33 +28,44 @@ class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
     }
 
     fun setLineChartValues() {
+
+
+        var inputData = arguments?.getIntegerArrayList("arg1")
+        var toast0 = Toast.makeText(context, "the arg1 is " + inputData.toString() , Toast.LENGTH_LONG)
+        toast0.show()
+
+
+        val inputData2 = arguments?.getIntegerArrayList("arg2")
+        var toast1 = Toast.makeText(context, "the arg2 is " + inputData.toString() , Toast.LENGTH_LONG)
+        toast1.show()
+
+//        if (inputData != null) {
+//            inputData.reverse()
+//        }
+
+
+//        if (inputData2 != null) {
+//            inputData2.reverse()
+//        }
+
+
+
         val xvalues = ArrayList<String>()
-        xvalues.add("Jan")
-        xvalues.add("Feb")
-        xvalues.add("Mar")
-        xvalues.add("Apr")
-        xvalues.add("May")
-        xvalues.add("Jun")
-        xvalues.add("Jul")
-        xvalues.add("Aug")
-        xvalues.add("Sep")
-        xvalues.add("Oct")
-        xvalues.add("Nov")
-        xvalues.add("Dec")
+        if (inputData != null) {
+            for(input1 in inputData){
+                xvalues.add(input1.toString())
+            }
+        }
+
 
         val lineEntry1 = ArrayList<Entry>()
-        lineEntry1.add(Entry(0.0f, 1))
-        lineEntry1.add(Entry(1.0f, 2))
-        lineEntry1.add(Entry(2.0f, 3))
-        lineEntry1.add(Entry(30.1f, 4))
-        lineEntry1.add(Entry(40.0f, 5))
-        lineEntry1.add(Entry(53.0f, 6))
-        lineEntry1.add(Entry(40.0f, 7))
-        lineEntry1.add(Entry(62.0f, 8))
-        lineEntry1.add(Entry(50.0f, 9))
-        lineEntry1.add(Entry(66.1f, 10))
-        lineEntry1.add(Entry(70.0f, 11))
-        lineEntry1.add(Entry(100.0f, 12))
+        if (inputData2 != null) {
+            var counter = 1;
+            for(input1 in inputData2){
+                lineEntry1.add(BarEntry(input1.toFloat(), counter))
+                counter++
+            }
+        }
 
 //        val lineEntry2 = ArrayList<Entry>()
 //        lineEntry2.add(Entry(23.0f, 1))
