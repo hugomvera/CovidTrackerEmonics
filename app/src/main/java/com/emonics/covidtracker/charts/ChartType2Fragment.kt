@@ -32,7 +32,10 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
 
     fun setBarChartValues(){
 
-        val inputData = arguments?.getIntegerArrayList("arg1")
+
+
+
+        var inputData = arguments?.getIntegerArrayList("arg1")
         var toast0 = Toast.makeText(context, "the arg1 is " + inputData.toString() ,Toast.LENGTH_LONG)
         toast0.show()
 
@@ -41,54 +44,18 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
         var toast1 = Toast.makeText(context, "the arg2 is " + inputData.toString() ,Toast.LENGTH_LONG)
         toast1.show()
 
+        if (inputData != null) {
+            inputData.reverse()
+        }
 
+
+        if (inputData2 != null) {
+            inputData2.reverse()
+        }
 
 
         // x axis hardcoded values of chart
             val xvalues = ArrayList<String>()
-//            xvalues.add("Jan")
-//            xvalues.add("Feb")
-//            xvalues.add("Mar")
-//            xvalues.add("Apr")
-//            xvalues.add("May")
-//            xvalues.add("Jun")
-//            xvalues.add("Jul")
-//            xvalues.add("Aug")
-//            xvalues.add("Sep")
-//            xvalues.add("Oct")
-//            xvalues.add("Nov")
-//            xvalues.add("Dec")
-
-
-//        val xvalues = ArrayList<Int>()
-//        xvalues.add(1)
-//        xvalues.add(2)
-//        xvalues.add(3)
-//        xvalues.add(4)
-//        xvalues.add(5)
-//        xvalues.add(6)
-//        xvalues.add(7)
-//        xvalues.add(8)
-//        xvalues.add(9)
-//        xvalues.add(10)
-//        xvalues.add(11)
-//        xvalues.add(12)
-
-
-
-//        val xvalues = ArrayList<String>()
-//            xvalues.add("1")
-//            xvalues.add("2")
-//            xvalues.add("3")
-//            xvalues.add("4")
-//            xvalues.add("5")
-//            xvalues.add("6")
-//            xvalues.add("7")
-//            xvalues.add("8")
-//            xvalues.add("9")
-//            xvalues.add("10")
-//            xvalues.add("11")
-//            xvalues.add("12")
 
 
         if (inputData != null) {
