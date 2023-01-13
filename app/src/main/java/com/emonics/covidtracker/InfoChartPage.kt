@@ -32,6 +32,8 @@ class InfoChartPage : AppCompatActivity() {
     //arraylist where the deaths or whatever ill be saved
     var aLDeaths = ArrayList<Int>();
 
+    var aLNegative = ArrayList<Int>();
+
     var positionForY = 0;
     var dataForY = ArrayList<Int>()
 
@@ -135,12 +137,11 @@ class InfoChartPage : AppCompatActivity() {
         //this is for the data type like deaths, positive, ...
         binding.spDataType.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener{
 
-            //this passes live what is selected on the drop down to select the state
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
               positionForY = position
-                //Toast.makeText(this,"hllo",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"hllo",Toast.LENGTH_LONG).show()
              Toast.makeText(this@InfoChartPage,"hello on dataType  postiion  is = "+positionForY,Toast.LENGTH_LONG).show()
             //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
             // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
@@ -221,6 +222,7 @@ class InfoChartPage : AppCompatActivity() {
                    Log.d("alDate","putting in "+ data.date)
                     aLDates.add(data.date as Int);
                     aLDeaths.add(data.death as Int)
+                    aLNegative.add(data.negative as Int)
 
                     //TODO add an arrayList with the dat ahere
 
@@ -276,10 +278,27 @@ class InfoChartPage : AppCompatActivity() {
             //adding String elements in the list
             arraylist.add(1)
 
-            Log.d("bundleOut","buldne out is arg1:"+ aLDates.toString())
+//             aLDates.reverse()
+//         aLDeaths.reverse()
+
+          //  Log.d("bundleOut","buldne out is arg1:"+ aLDates)
             Log.d("bundleOut","buldne out is arg2:"+ aLDeaths)
+
+//         //   if(positionForY ==1){print("hi")}
             putIntegerArrayList("arg1",aLDates)
-            putIntegerArrayList("arg2",aLDeaths)
+            //aLDates.clear()
+
+
+            if(positionForY ==0) {
+                putIntegerArrayList("arg2",aLDeaths)
+                //aLDeaths.clear()
+            }
+
+            if(positionForY ==1) {
+                putIntegerArrayList("arg2",aLNegative)
+                //aLNegative.clear()
+            }
+
         }
 
         fragment.arguments = bundle

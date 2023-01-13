@@ -43,15 +43,15 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
         val inputData2 = arguments?.getIntegerArrayList("arg2")
         var toast1 = Toast.makeText(context, "the arg2 is " + inputData.toString() ,Toast.LENGTH_LONG)
         toast1.show()
-
-        if (inputData != null) {
-            inputData.reverse()
-        }
-
-
-        if (inputData2 != null) {
-            inputData2.reverse()
-        }
+//
+//        if (inputData != null) {
+//            inputData.reverse()
+//        }
+//
+//
+//        if (inputData2 != null) {
+//            inputData2.reverse()
+//        }
 
 
         // x axis hardcoded values of chart
@@ -59,7 +59,7 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
 
 
         if (inputData != null) {
-            for(input1 in inputData){
+            for(input1 in inputData.reversed()){
                 xvalues.add(input1.toString())
             }
         }
@@ -70,7 +70,7 @@ class ChartType2Fragment : Fragment(R.layout.fragment_chart_type2) {
 
         if (inputData2 != null) {
             var counter = 1;
-            for(input1 in inputData2){
+            for(input1 in inputData2.reversed()){
 
                 barEntries.add(BarEntry(input1.toFloat(), counter))
                 counter++

@@ -42,8 +42,8 @@ class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
 //        if (inputData != null) {
 //            inputData.reverse()
 //        }
-
-
+//
+//
 //        if (inputData2 != null) {
 //            inputData2.reverse()
 //        }
@@ -52,7 +52,7 @@ class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
 
         val xvalues = ArrayList<String>()
         if (inputData != null) {
-            for(input1 in inputData){
+            for(input1 in inputData.reversed()){
                 xvalues.add(input1.toString())
             }
         }
@@ -61,7 +61,7 @@ class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
         val lineEntry1 = ArrayList<Entry>()
         if (inputData2 != null) {
             var counter = 1;
-            for(input1 in inputData2){
+            for(input1 in inputData2.reversed()){
                 lineEntry1.add(BarEntry(input1.toFloat(), counter))
                 counter++
             }
