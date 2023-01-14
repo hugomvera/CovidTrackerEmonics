@@ -48,7 +48,7 @@ A list of technologies used within the project:
 ####  Login SingUp 
 
 
-![LoginSingUpScreen](LoginSingUpScreen1.png | width=100 )
+![LoginSingUpScreen](LoginSingUpScreen1.png)
 
 #### Data Visualization
 
