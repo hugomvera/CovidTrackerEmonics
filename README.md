@@ -74,8 +74,10 @@ Side information: To use the application in a special environment use ```lorem i
 ***
 A list of frequently asked questions
 1. **Where Was the Data Fetched?**
+
    https://api.covidtracking.com/
 2. **Where Was The Most Difficult?**
+
 Many Api/Frameworks had to be used in conjunction:
 * Room DataBse
 * RetroFit for Rest
