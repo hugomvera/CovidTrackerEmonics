@@ -54,9 +54,6 @@ class InfoChartPage : AppCompatActivity() {
         //dataTypeList is the dataType
         val dataTypeList = resources.getStringArray(R.array.DataType)
 
-        //this is to debug
-        //      Log.d("Emonics", statesList.toString())
-
         // Declare and initialize adaptors
         //adapter for  states
         val adapterState = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, statesList)
@@ -67,19 +64,6 @@ class InfoChartPage : AppCompatActivity() {
         //adapter for datatype
         val adapterDataType = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dataTypeList)
 
-        /*
-         Use this code block as a potential reference later.
-         On the chance we need to check for nulls.
-         Ideally would like to populate with a default value.
-        ------------------------------------------------------
-        val spState = findViewById<Spinner>(R.id.spState)
-
-            if (spState != null){
-                val adapterState = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, statesList)
-                spState.adapter = adapterState
-            }
-        -------------------------------------------------------
-        */
 
 
         //this for the state drop down
@@ -105,10 +89,6 @@ class InfoChartPage : AppCompatActivity() {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
                 stateNumber = position
-
-
-                Toast.makeText(this@InfoChartPage,"the state position is = "+stateNumber,Toast.LENGTH_LONG).show()
-
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -142,10 +122,6 @@ class InfoChartPage : AppCompatActivity() {
                 val text: String = adapterView?.getItemAtPosition(position).toString()
 
               positionForY = position
-            //Toast.makeText(this,"hllo",Toast.LENGTH_LONG).show()
-             //Toast.makeText(this@InfoChartPage,"hello on dataType  postiion  is = "+positionForY,Toast.LENGTH_LONG).show()
-            //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
-            // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -159,14 +135,7 @@ class InfoChartPage : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    /*
-    Function shows calendar and allows user to selection start and end dates.
-    ------------------------------------------------------------------
-    TODO: Potential Issue
-    Start Date selected is 1 day behind the day selected by the user.
-    End Date selected is also 1 day behind.
-    ------------------------------------------------------------------
-    */
+
     private fun showDateRangePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
             .dateRangePicker()
@@ -180,8 +149,6 @@ class InfoChartPage : AppCompatActivity() {
 
             val startDate = datesPicked.first
             val endDate = datesPicked.second
-//            Log.d("Emonics:", startDate.toString())
-//            Log.d("Emonics:", endDate.toString())
 
            if(startDate != null && endDate != null) {
 
@@ -189,11 +156,8 @@ class InfoChartPage : AppCompatActivity() {
                 date1 = Integer.valueOf(convertLongToDate(startDate).toString().replace("-","") )
                 date2  = Integer.valueOf(convertLongToDate(endDate).toString().replace("-","") )
 
-             //  stringTestOut = "Year-Month-Day\n"+ "Start Date:\t" + date1 + "\nEnd Date:\t " + date2+ "\n"
            }
 
-            //TODO can place query here
-            Toast.makeText(this,"testing out" + stateNumber,Toast.LENGTH_LONG).show()
 
             stringTestOut = ""
             aLDates.clear()
@@ -205,67 +169,30 @@ class InfoChartPage : AppCompatActivity() {
 
             mDataViewModel.readByState(stateNumber,date1,date2).observe(this@InfoChartPage) { datas ->
 
-                // txt1.text=words[1].word
-                println(datas.toString())
-
-              //  Toast.makeText(this,"!!!!!!!!!!!!!inside the readbystate observable!!!!!!!!!!!!!!!",Toast.LENGTH_LONG).show()
-
-                Log.d("readOutQueryFromInfoChartPage","state=")
-
-
 
                 for(data in datas){
                     stringTestOut += "id: "+data.id.toString() +
                                      "date: " + data.date +
                                     "death: " + data.death.toString() +
                                      "state: " + data.states.toString() + "\n"
-                    Log.d("readOutQueryFromInfoChartPage",data.id.toString())
-                    Log.d("readOutQueryFromInfoChartPage",data.dateChecked.toString())
-                    Log.d("readOutQueryFromInfoChartPage",data.death.toString())
-                    Log.d("readOutQueryFromInfoChartPage","state="+data.states.toString())
-                  //  Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
 
-                   Log.d("alDate","putting in "+ data.date)
+
                     aLDates.add(data.date as Int);
                     aLDeaths.add(data.death as Int)
                     aLNegative.add(data.negative as Int)
-
-                    //TODO add an arrayList with the dat ahere
-
-
-
-
-//                    when(positionForY){
-//                        0 ->
-//                    }
 
 
                 }
 
                 binding.tvDateRange.text = stringTestOut
 
-                //Toast.makeText(this,"the data is " + stringTestOut,Toast.LENGTH_LONG).show()
-
-                Log.d("alDate","putting in "+ aLDates.toString())
-                //Toast.makeText(this,"the dates are" + convertLongToDate(startDate).toString().replace("-","") +" to "+ convertLongToDate(endDate) ,Toast.LENGTH_LONG).show()
-
-                //Toast.makeText(this,"the start date int is" + startDate + " to " +endDate,Toast.LENGTH_LONG )
             }
-            //stringTestOut += "\n"+ "the output of query is "
-
-
         }
 
 
 
     }
-    /*
-    Converts a long into a string with a formatted value.
-    ---------------------------------------------------------------------------------------
-    TODO: Potential Issue
-    May need to create another function that can format the date into a queryable string.
-    ---------------------------------------------------------------------------------------
-    */
+
     private fun convertLongToDate(time: Long) : String{
         val date = Date(time)
         val formattedDate = SimpleDateFormat(
@@ -276,31 +203,17 @@ class InfoChartPage : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment : Fragment){
-        //pass data to fragement
+
         val bundle = Bundle().apply {
-           // putString("arg1", "this is data1")
 
-
-
-
-
-          //  Log.d("bundleOut","buldne out is arg1:"+ aLDates)
-            Log.d("bundleOut","buldne out is arg2:"+ aLDeaths)
-
-//         //   if(positionForY ==1){print("hi")}
             putIntegerArrayList("arg1",aLDates)
-            //aLDates.clear()
-
-
 
             if(positionForY ==0) {
                 putIntegerArrayList("arg2",aLDeaths)
-                //aLDeaths.clear()
             }
 
             if(positionForY ==1) {
                 putIntegerArrayList("arg2",aLNegative)
-                //aLNegative.clear()
             }
 
         }
@@ -312,9 +225,4 @@ class InfoChartPage : AppCompatActivity() {
         fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
         fragmentTransaction.commit()
     }
-
-
 }
-
-// TODO: Use the fragment container in this activity and create 3 fragments inside it. 1 for each of
-//  the charts we want to use.

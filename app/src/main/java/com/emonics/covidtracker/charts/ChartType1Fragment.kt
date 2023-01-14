@@ -31,23 +31,10 @@ class ChartType1Fragment : Fragment(R.layout.fragment_chart_type1) {
 
 
         var inputData = arguments?.getIntegerArrayList("arg1")
-        var toast0 = Toast.makeText(context, "the arg1 is " + inputData.toString() , Toast.LENGTH_LONG)
-        toast0.show()
+
 
 
         val inputData2 = arguments?.getIntegerArrayList("arg2")
-        var toast1 = Toast.makeText(context, "the arg2 is " + inputData.toString() , Toast.LENGTH_LONG)
-        toast1.show()
-
-//        if (inputData != null) {
-//            inputData.reverse()
-//        }
-//
-//
-//        if (inputData2 != null) {
-//            inputData2.reverse()
-//        }
-
 
 
         val xvalues = ArrayList<String>()
