@@ -43,11 +43,21 @@ A list of technologies used within the project:
 
 #### Data Visualization
 
-<img src="https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/barGraph1.png?raw=true" width="300" height="600" align="left" >
-<img src="https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/lineGraph1.png?raw=true" width="300" height="600" align="left">
 
 
 
+
+<div class="row">
+  <div class="column">
+   <img src="https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/barGraph1.png?raw=true" width="300" height="600" align="left" >
+  </div>
+  <div class="column">
+   <img src="https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/lineGraph1.png?raw=true" width="300" height="600" align="left">
+  </div>
+  <div class="column">
+
+  </div>
+</div>
 
 
 
