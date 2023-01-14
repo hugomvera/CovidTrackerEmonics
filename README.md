@@ -45,11 +45,10 @@ A list of technologies used within the project:
 
 ### Demo
 
-#### Splash Screen
+#### Splash Screen and LoginSingUpScreen
 
 ![SplashScreen](SplashScreen.png)
 
-#### LoginSingUpScreen
 
 ![LoginSingUpScreen](LoginSingUpScreen.png)
 
