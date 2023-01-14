@@ -51,7 +51,6 @@ A list of technologies used within the project:
 
 
 
-Side information: To use the application in a special environment use ```lorem ipsum``` to start
 ## Collaboration
 
 #### Amik
