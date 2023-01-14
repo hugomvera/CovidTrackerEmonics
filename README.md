@@ -43,7 +43,7 @@ A list of technologies used within the project:
 
 #### Data Visualization
 
-![barGraph](barGraph1.png)
+![barGraph](https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/barGraph1.png?raw=true)
 ![lineGraph](lineGraph1.png)
 
 
