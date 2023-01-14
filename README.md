@@ -43,15 +43,20 @@ A list of technologies used within the project:
 * [Room](https://androidx.room): Version 2.3
 * [RetroFit](https://com.squareup.retrofit2:retrofit):Version 2.7.1 
 
-## Installation
+## Demo
 ***
-A little intro about the installation. 
-```
-$ git clone https://example.com
-$ cd ../path/to/the/file
-$ npm install
-$ npm start
-```
+#Splash Screen
+![SplashScreen](SplashScreen.png)
+
+#LoginSingUpScreen
+![LoginSingUpScreen](LoginSingUpScreen.png)
+
+#Data Visualization
+![barGraph](barGraph.png)
+![lineGraph](graphLine.png)
+
+
+
 Side information: To use the application in a special environment use ```lorem ipsum``` to start
 ## Collaboration
 ***
