@@ -39,7 +39,8 @@ A list of technologies used within the project:
 ####  Login SingUp 
 
 
-![LoginSingUpScreen](LoginSingUpScreen1.png)
+
+ <img src="https://github.com/hugomvera/CovidTrackerEmonics/blob/hugoChart1andChart2PassingData/LoginSingUpScreen1.png?raw=true" width="300" height="600"  >
 
 #### Data Visualization
 
