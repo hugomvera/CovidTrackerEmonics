@@ -67,22 +67,17 @@ Side information: To use the application in a special environment use ```lorem i
 
 
 ### Contribute
-> Email one of the Collaborators 
-> tell us what you want to improve
-> ask for pull/merge request
+> Email one of the Collaborators. 
+> Tell us what you want to improve.
+> Ask for pull/merge request.
 ## FAQs
 ***
 A list of frequently asked questions
-1. **This is a question in bold**
-Answer to the first question with _italic words_. 
-2. __Second question in bold__ 
-To answer this question, we use an unordered list:
-* First point
-* Second Point
-* Third point
-3. **Third question in bold**
-Answer to the third question with *italic words*.
-4. **Fourth question in bold**
-| Headline 1 in the tablehead | Headline 2 in the tablehead | Headline 3 in the tablehead |
-|:--------------|:-------------:|--------------:|
-| text-align left | text-align center | text-align right |
+1. **Where Was the Data Fetched?**
+   https://api.covidtracking.com/
+2. **Where Was The Most Difficult?**
+Many Api/Frameworks had to be used in conjunction:
+* Room DataBse
+* RetroFit for Rest
+* Graphing Utilities
+
