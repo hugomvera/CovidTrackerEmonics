@@ -45,15 +45,15 @@ A list of technologies used within the project:
 
 ### Demo
 
-#Splash Screen
+##Splash Screen
 
 ![SplashScreen](SplashScreen.png)
 
-#LoginSingUpScreen
+##LoginSingUpScreen
 
 ![LoginSingUpScreen](LoginSingUpScreen.png)
 
-#Data Visualization
+##Data Visualization
 
 ![barGraph](barGraph.png)
 ![lineGraph](graphLine.png)
