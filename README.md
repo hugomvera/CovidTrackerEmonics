@@ -43,8 +43,8 @@ A list of technologies used within the project:
 * [Room](https://androidx.room): Version 2.3
 * [RetroFit](https://com.squareup.retrofit2:retrofit):Version 2.7.1 
 
-## Demo
-***
+### Demo
+
 #Splash Screen
 
 ![SplashScreen](SplashScreen.png)
@@ -62,7 +62,7 @@ A list of technologies used within the project:
 
 Side information: To use the application in a special environment use ```lorem ipsum``` to start
 ## Collaboration
-***
+
 Give instructions on how to collaborate with your project.
 > Maybe you want to write a quote in this part. 
 > Should it encompass several lines?
