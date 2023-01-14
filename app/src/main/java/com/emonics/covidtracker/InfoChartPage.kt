@@ -33,6 +33,9 @@ class InfoChartPage : AppCompatActivity() {
     var aLDeaths = ArrayList<Int>();
 
     var aLNegative = ArrayList<Int>();
+    var aLPositive = ArrayList<Int>();
+
+
 
     var positionForY = 0;
     var dataForY = ArrayList<Int>()
@@ -163,6 +166,7 @@ class InfoChartPage : AppCompatActivity() {
             aLDates.clear()
             aLDeaths.clear()
             aLNegative.clear()
+            aLPositive.clear()
 
             var mDataViewModel: DataViewModel
             mDataViewModel = ViewModelProvider(this@InfoChartPage).get(DataViewModel::class.java)
@@ -180,6 +184,7 @@ class InfoChartPage : AppCompatActivity() {
                     aLDates.add(data.date as Int);
                     aLDeaths.add(data.death as Int)
                     aLNegative.add(data.negative as Int)
+                    aLPositive.add(data.positive as Int)
 
 
                 }
@@ -214,6 +219,10 @@ class InfoChartPage : AppCompatActivity() {
 
             if(positionForY ==1) {
                 putIntegerArrayList("arg2",aLNegative)
+            }
+
+            if(positionForY ==2) {
+                putIntegerArrayList("arg2",aLPositive)
             }
 
         }
