@@ -48,8 +48,6 @@ A list of technologies used within the project:
 #### Splash Screen and LoginSingUpScreen
 
 ![SplashScreen](SplashScreen.png)
-
-
 ![LoginSingUpScreen](LoginSingUpScreen.png)
 
 #### Data Visualization
