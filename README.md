@@ -30,8 +30,11 @@ The queried data can be graphed in xy plane with lines connecting them or they c
 The data is fetched from https://api.covidtracking.com/ where a Json is captured and parse Using Retrofit. 
 
 
-### Screenshot
+### RoomDataBase
 ![RoomDataBasePicture](RoomDataBase.png)
+This is our Database table with data populated. This was viewed using App Inspector. 
+
+
 ## Technologies
 ***
 A list of technologies used within the project:
