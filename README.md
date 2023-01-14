@@ -53,7 +53,7 @@ A list of technologies used within the project:
 #### Data Visualization
 
 ![barGraph](barGraph1.png)
-![lineGraph](linGraph1.png)
+![lineGraph](lineGraph1.png)
 
 
 
