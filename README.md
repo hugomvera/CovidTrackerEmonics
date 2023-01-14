@@ -59,12 +59,17 @@ A list of technologies used within the project:
 
 Side information: To use the application in a special environment use ```lorem ipsum``` to start
 ## Collaboration
-### Hugo Vera
 
-Give instructions on how to collaborate with your project.
-> Maybe you want to write a quote in this part. 
-> Should it encompass several lines?
-> This is how you do it.
+#### Amik
+#### Hugo 
+#### Nibedita
+#### Komal
+
+
+### Contribute
+> Email one of the Collaborators 
+> tell us what you want to improve
+> ask for pull/merge request
 ## FAQs
 ***
 A list of frequently asked questions
