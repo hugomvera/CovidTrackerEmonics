@@ -23,7 +23,7 @@ import java.util.*
 // Goals: Create logic for new chart activity/fragments.
 
 class InfoChartPage : AppCompatActivity() {
-    private lateinit var mDataViewModel: DataViewModel
+
     private lateinit var binding: ActivityInfoChartPageBinding
     var stateNumber = 56;
     var date1 = 0
@@ -106,6 +106,7 @@ class InfoChartPage : AppCompatActivity() {
 
                 stateNumber = position
 
+
                 Toast.makeText(this@InfoChartPage,"the state position is = "+stateNumber,Toast.LENGTH_LONG).show()
 
 
@@ -142,7 +143,7 @@ class InfoChartPage : AppCompatActivity() {
 
               positionForY = position
             //Toast.makeText(this,"hllo",Toast.LENGTH_LONG).show()
-             Toast.makeText(this@InfoChartPage,"hello on dataType  postiion  is = "+positionForY,Toast.LENGTH_LONG).show()
+             //Toast.makeText(this@InfoChartPage,"hello on dataType  postiion  is = "+positionForY,Toast.LENGTH_LONG).show()
             //TODO: Create a similar switch statement (like line 115-116) to reflect when the data type items are
             // selected on the spinner. Try to dynamically change your query based on the position/index of the arraylist.
 
@@ -192,9 +193,14 @@ class InfoChartPage : AppCompatActivity() {
            }
 
             //TODO can place query here
-            Toast.makeText(this,"testing out",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"testing out" + stateNumber,Toast.LENGTH_LONG).show()
 
+            stringTestOut = ""
+            aLDates.clear()
+            aLDeaths.clear()
+            aLNegative.clear()
 
+            var mDataViewModel: DataViewModel
             mDataViewModel = ViewModelProvider(this@InfoChartPage).get(DataViewModel::class.java)
 
             mDataViewModel.readByState(stateNumber,date1,date2).observe(this@InfoChartPage) { datas ->
@@ -202,7 +208,7 @@ class InfoChartPage : AppCompatActivity() {
                 // txt1.text=words[1].word
                 println(datas.toString())
 
-                Toast.makeText(this,"!!!!!!!!!!!!!inside the readbystate observable!!!!!!!!!!!!!!!",Toast.LENGTH_LONG).show()
+              //  Toast.makeText(this,"!!!!!!!!!!!!!inside the readbystate observable!!!!!!!!!!!!!!!",Toast.LENGTH_LONG).show()
 
                 Log.d("readOutQueryFromInfoChartPage","state=")
 
@@ -217,7 +223,7 @@ class InfoChartPage : AppCompatActivity() {
                     Log.d("readOutQueryFromInfoChartPage",data.dateChecked.toString())
                     Log.d("readOutQueryFromInfoChartPage",data.death.toString())
                     Log.d("readOutQueryFromInfoChartPage","state="+data.states.toString())
-                    Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(this,"inside the datas loop:" + stringTestOut,Toast.LENGTH_SHORT).show()
 
                    Log.d("alDate","putting in "+ data.date)
                     aLDates.add(data.date as Int);
@@ -238,7 +244,7 @@ class InfoChartPage : AppCompatActivity() {
 
                 binding.tvDateRange.text = stringTestOut
 
-                Toast.makeText(this,"the data is " + stringTestOut,Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"the data is " + stringTestOut,Toast.LENGTH_LONG).show()
 
                 Log.d("alDate","putting in "+ aLDates.toString())
                 //Toast.makeText(this,"the dates are" + convertLongToDate(startDate).toString().replace("-","") +" to "+ convertLongToDate(endDate) ,Toast.LENGTH_LONG).show()
@@ -274,12 +280,9 @@ class InfoChartPage : AppCompatActivity() {
         val bundle = Bundle().apply {
            // putString("arg1", "this is data1")
 
-            var arraylist = ArrayList<Int>()
-            //adding String elements in the list
-            arraylist.add(1)
 
-//             aLDates.reverse()
-//         aLDeaths.reverse()
+
+
 
           //  Log.d("bundleOut","buldne out is arg1:"+ aLDates)
             Log.d("bundleOut","buldne out is arg2:"+ aLDeaths)
@@ -287,6 +290,7 @@ class InfoChartPage : AppCompatActivity() {
 //         //   if(positionForY ==1){print("hi")}
             putIntegerArrayList("arg1",aLDates)
             //aLDates.clear()
+
 
 
             if(positionForY ==0) {
