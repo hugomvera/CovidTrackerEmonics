@@ -22,16 +22,16 @@
 ***
 
 Data Visualization project.
-Fethces data using RetroFit and stores in a Room Database.
+Fetches data using RetroFit and stores in a Room Database.
 ModelView is used to create the retrofit data.
 FireBase is used to authenticate users.
-The data involves deaths, negative, positive test results, Queries are perfor based on date ranges and state selected. 
+The data involves deaths, negative, positive test results, Queries are perform based on date ranges and state selected. 
 The queried data can be graphed in xy plane with lines connecting them or they can be put in a bar graph. 
 The data is fetched from https://api.covidtracking.com/ where a Json is captured and parse Using Retrofit. 
 
 
 ### Screenshot
-![Image text](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+![RoomDataBasePicture](RoomDataBase.png)
 ## Technologies
 ***
 A list of technologies used within the project:
