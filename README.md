@@ -48,11 +48,11 @@ A list of technologies used within the project:
 ####  Login SingUp 
 
 
-![LoginSingUpScreen](LoginSingUpScreen1.png)
+![LoginSingUpScreen](LoginSingUpScreen1.png =250x250)
 
 #### Data Visualization
 
-![barGraph](barGraph1.png)
+![barGraph](barGraph1.png =500x250)
 ![lineGraph](linGraph1.png)
 
 
