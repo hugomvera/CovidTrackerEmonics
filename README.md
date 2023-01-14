@@ -1,14 +1,5 @@
 # CovidTrackerEmonics
-# CovidTrackerEmonics
 
-
-  -Retrofit
-  -Activity
-  -FireBase
-  -Room Datase
-  -SQL syntax
-  -Kotlin
-  -Courutines
   
 
 
