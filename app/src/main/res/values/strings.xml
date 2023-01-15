@@ -92,23 +92,23 @@
 
     <string-array name="DataType">
         <item>Death</item>
-        <item> Death Increase </item>
-        <item>Hospitalized    </item>
-        <item>Hospitalized Cumulative</item>
-        <item>Hospitalized Currently</item>
-        <item>Hospitalized Increase </item>
-        <item> in Icu Cumulative </item>
-        <item>in Icu Currently</item>
+        <!--item> Death Increase </item-->
+        <!--item>Hospitalized    </item-->
+        <!--item>Hospitalized Cumulative</item-->
+        <!--item>Hospitalized Currently</item-->
+        <!--item>Hospitalized Increase </item-->
+        <!--item> in Icu Cumulative </item-->
+        <!--item>in Icu Currently</item-->
         <item>Negative</item>
-        <item>Negative Increase</item>
-        <item> on Ventilator Cumulative </item>
-        <item>on Ventilator Currently</item>
-        <item> pending </item>
+        <!--item>Negative Increase</item-->
+        <!--item> on Ventilator Cumulative </item-->
+        <!--item>on Ventilator Currently</item-->
+        <!--item> pending </item-->
         <item>Positive</item>
-        <item>positiveIncrease </item>
-        <item>total </item>
-        <item>totalTestResults</item>
-        <item>Total Test Results Increase</item>
+        <!--item>positiveIncrease </item-->
+        <!--item>total </item-->
+        <!--item>totalTestResults</item-->
+        <!--item>Total Test Results Increase</item-->
     </string-array>
 
 </resources>

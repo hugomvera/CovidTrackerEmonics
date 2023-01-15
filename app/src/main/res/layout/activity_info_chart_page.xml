@@ -57,6 +57,7 @@
         app:layout_constraintVertical_bias="0.901" />
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/tvDateRange"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
