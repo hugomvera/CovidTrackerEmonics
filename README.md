@@ -7,8 +7,9 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#Demonstration)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+4. [Use-Cases](#use-case)
+5. [Collaboration](#collaboration)
+6. [FAQs](#faqs)
 ### General Info
 ***
 
@@ -61,7 +62,28 @@ A list of technologies used within the project:
 </div>
 
 
+## Use-Cases
+**From Welcome Screen either (a) or (b)**
+* (a) Click Login to go to log-in page.
+* (b) Click SignUp to go to sign-up page.
 
+**From log-in page:**
+* Provide existing user credentials, and click Login.
+
+**From sign-up page:**
+* Provide new user credentials, and click Register.
+
+**On Successful Log-In: Covid Tracker Chart Page Displayed**
+* Click OR for State.
+* Line Chart or Bar Chart for Charts.
+* Death for Data Type.
+* Click Select Date. Click on pencil to type-in date range or select the range from calendar.
+* Click Save on the calendar.
+* Click and select the bar chart or line chart again.
+
+**Once chart display has populated data**
+* Click on Convert To CSV to go to the CSV Display Page.
+* Look at the CSV version of the chart data.
 
 ## Collaboration
 
@@ -81,10 +103,13 @@ A list of frequently asked questions
 1. **Where Was the Data Fetched?**
 
    https://api.covidtracking.com/
-2. **Where Was The Most Difficult?**
+2. **What Was The Most Difficult?**
 
 Many Api/Frameworks had to be used in conjunction:
-* Room DataBse
+* Room DataBase
 * RetroFit for Rest
 * Graphing Utilities
+
+## Features We Would've Liked To Add
+* Email csv button feature to send a csv copy of the data selected to a user's email.
 
