@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,37 +8,47 @@
     tools:context=".CSVmainactivity"
     android:orientation="vertical"
     android:background="@color/purple_200">
+
         <TextView
             android:id="@+id/txtVCSV"
-            android:layout_width="400dp"
-            android:layout_height="500dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@color/white"/>
+            android:layout_width="372dp"
+            android:layout_height="482dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.064" />
+
         <Button
             android:id="@+id/btnCVSdevice"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginRight="20dp"
+            android:layout_above="@+id/btnCVSemail"
             android:text="Download CVS to Device"
             android:textSize="18sp"
-            android:layout_above="@+id/btnCVSemail"
-            android:layout_marginBottom="10dp"
-            android:visibility="invisible"/>
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.862"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtVCSV"
+            app:layout_constraintVertical_bias="0.173" />
 
         <Button
             android:id="@+id/btnCVSemail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textSize="18sp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginStart="180dp"
-            android:text="Send CVS to Email"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="100dp"
-            android:visibility="invisible"/>
+            android:text="Send CVS to Email"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.912"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCVSdevice"
+            app:layout_constraintVertical_bias="0.256" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

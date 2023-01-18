@@ -51,7 +51,7 @@ class InfoChartPage : AppCompatActivity() {
         //state list array strings
         val statesList = resources.getStringArray(R.array.States)
 
-        //chartList is the avaible chart types
+        //chartList is the available chart types
         val chartList = resources.getStringArray(R.array.Charts)
 
         //dataTypeList is the dataType
@@ -139,6 +139,12 @@ class InfoChartPage : AppCompatActivity() {
         }
     }
 
+
+    //-------------------------------------------------------------------------------------
+    // Functions:
+    //-------------------------------------------------------------------------------------
+
+    // Allows user to select a date range from the calendar.
     private fun showDateRangePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
             .dateRangePicker()
@@ -198,6 +204,7 @@ class InfoChartPage : AppCompatActivity() {
 
     }
 
+    // Converts the time to a date.
     private fun convertLongToDate(time: Long) : String{
         val date = Date(time)
         val formattedDate = SimpleDateFormat(
@@ -207,6 +214,7 @@ class InfoChartPage : AppCompatActivity() {
         return formattedDate.format(date)
     }
 
+    // Used for replacing the fragments in the fragment container.
     private fun replaceFragment(fragment : Fragment){
 
         val bundle = Bundle().apply {
@@ -229,6 +237,7 @@ class InfoChartPage : AppCompatActivity() {
 
         fragment.arguments = bundle
 
+        // supportFragmentManager handles the replacing of fragments.
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
