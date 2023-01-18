@@ -139,6 +139,11 @@ class InfoChartPage : AppCompatActivity() {
         }
     }
 
+
+    //-------------------------------------------------------------------------------------
+    // Functions:
+    //-------------------------------------------------------------------------------------
+
     private fun showDateRangePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
             .dateRangePicker()
