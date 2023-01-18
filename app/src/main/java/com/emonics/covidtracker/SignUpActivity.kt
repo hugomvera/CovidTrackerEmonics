@@ -1,16 +1,69 @@
 package com.emonics.covidtracker
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.emonics.covidtracker.databinding.ActivitySignUpBinding
 import com.emonics.covidtracker.model.UserProfile
-import com.google.firebase.database.*
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
 
 
+
+class SignUpActivity : AppCompatActivity(){
+
+    private lateinit var binding: ActivitySignUpBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        binding.signupbtn.setOnClickListener{
+            val userName = binding.username.text.toString()
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
+            val confirmPassword = binding.confirmPassword.text.toString()
+
+            if (userName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()){
+                if (password == confirmPassword){
+
+                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
+
+                        if(it.isSuccessful){
+                            Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, LoginActivity::class.java )
+                            startActivity(intent)
+
+                        }else{
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
+
+                    }
+
+                }
+                else{
+                    Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show()
+                }
+            }
+            else{
+                Toast.makeText(this, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
+}
+
+
+
+// Older code to be used as a reference.
+/*
 class SignUpActivity : AppCompatActivity() {
 
     // creating a variable for our
@@ -74,3 +127,5 @@ class SignUpActivity : AppCompatActivity() {
         })
     }
 }
+
+*/
