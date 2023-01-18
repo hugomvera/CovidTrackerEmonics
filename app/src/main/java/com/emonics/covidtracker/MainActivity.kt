@@ -36,20 +36,20 @@ class MainActivity : AppCompatActivity() {
         }, 3000)
 
 
-
+        // Created access to the database using the DataViewModel.
         mDataViewModel = ViewModelProvider(this).get(DataViewModel::class.java)
 
         //starting the API retrofit to get the data
         val dataApi = RetrofitHelper.getInstance().create(DataApi::class.java)
 
-        //will write to the data with this codde
+        //will write to the data with this code
         // launching a new coroutine
         GlobalScope.launch {
 
             var counter = 0;
             val result = dataApi.getData()
             // Checking the results
-            Log.d("ayush: ", result.body().toString())
+//          result of the api call.
             val dataList = result.body()?.listIterator()
             if (dataList != null) {
                 while (dataList.hasNext()) {
