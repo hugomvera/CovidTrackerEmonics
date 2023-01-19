@@ -31,9 +31,11 @@ class SignUpActivity : AppCompatActivity(){
             val password = binding.password.text.toString()
             val confirmPassword = binding.confirmPassword.text.toString()
 
+            // Conditions that need to be met.
             if (userName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()){
                 if (password == confirmPassword){
 
+                    // Function for creating a user in firebase.
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
 
                         if(it.isSuccessful){
